@@ -71,19 +71,7 @@ export function addUseCase(req, res) {
  * @returns void
  */
 export function addUseCase1(req, res) {
-  // if (!req.body.usecase.name || !req.body.usecase.title || !req.body.usecase.content) {
-  //   res.status(403).end();
-  // }
   const useCaseModel = _retrievePostBody(req, res);
-  console.log(useCaseModel);
-  //
-  // useCaseModel.save((err, saved) => {
-  //   if (err) {
-  //     res.status(500).send(err);
-  //   }
-  //   res.json({ message: 'Success', data: saved });
-  // });
-
   useCaseModel.save((err) => {
     if (err) {
       res.send(err);

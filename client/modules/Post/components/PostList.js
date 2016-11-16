@@ -7,11 +7,10 @@ function PostList(props) {
   return (
     <div className="listView">
       {
-        props.posts.map(post => (
+        props.usecases.map(usecase => (
           <PostListItem
-            post={post}
-            key={post.cuid}
-            onDelete={() => props.handleDeletePost(post.cuid)}
+            usecase={usecase}
+            key={usecase._id}
           />
         ))
       }
@@ -20,14 +19,11 @@ function PostList(props) {
 }
 
 PostList.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
+  usecases: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    milestones: PropTypes.array,
   })).isRequired,
-  handleDeletePost: PropTypes.func.isRequired,
 };
 
 export default PostList;
