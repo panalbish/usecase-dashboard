@@ -22,11 +22,11 @@ const UseCaseReducer = (state = initialState, action) => {
 
 /* Selectors */
 
-// Get all posts
+// Get all usecases
 export const getUseCases = state => state.usecases.data;
 
-// Get post by cuid
-export const getUseCase = (state, cuid) => state.usecases.data.filter(post => post.cuid === cuid)[0];
+// Get usecase by cuid
+export const getUseCase = (state, cuid) => state.usecases.data.filter(usecase => usecase.cuid === cuid)[0];
 
 // Export Reducer
 export default UseCaseReducer;

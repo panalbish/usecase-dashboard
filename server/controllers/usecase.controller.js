@@ -23,7 +23,7 @@ export function getUseCases(req, res) {
  * @returns {UseCase}
  * @private
  */
-function _retrievePostBody(req, res) {
+function _retrieveusecaseBody(req, res) {
   const useCaseModel = new UseCase();
   const useCaseBody = req.body;
   if (useCaseBody.length === 0) {
@@ -71,7 +71,7 @@ export function addUseCase(req, res) {
  * @returns void
  */
 export function addUseCase1(req, res) {
-  const useCaseModel = _retrievePostBody(req, res);
+  const useCaseModel = _retrieveusecaseBody(req, res);
   useCaseModel.save((err) => {
     if (err) {
       res.send(err);

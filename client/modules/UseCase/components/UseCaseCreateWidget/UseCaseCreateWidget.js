@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { injectIntl, intlShape } from 'react-intl';
 
 // Import Style
 import styles from './UseCaseCreateWidget.css';
@@ -23,7 +22,7 @@ export class UseCaseCreateWidget extends Component {
           <h2 className={styles['form-title']}>Create New UseCase</h2>
           <input placeholder="Title" className={styles['form-field']} ref="title" />
           <textarea placeholder="Body" className={styles['form-field']} ref="content" />
-          <a className={styles['post-submit-button']} href="#" onClick={this.addUseCase}>Add</a>
+          <a className={styles['usecase-submit-button']} href="#" onClick={this.addUseCase}>Add</a>
         </div>
       </div>
     );
@@ -32,8 +31,7 @@ export class UseCaseCreateWidget extends Component {
 
 UseCaseCreateWidget.propTypes = {
   addUseCase: PropTypes.func.isRequired,
-  showAddUseCase: PropTypes.bool.isRequired,
-  intl: intlShape.isRequired
+  showAddUseCase: PropTypes.bool.isRequired
 };
 
-export default injectIntl(UseCaseCreateWidget);
+export default UseCaseCreateWidget;

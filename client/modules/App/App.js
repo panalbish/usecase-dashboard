@@ -11,7 +11,6 @@ import Header from './components/Header/Header';
 
 // Import Actions
 import { toggleAddUseCase } from './AppActions';
-import { switchLanguage } from '../../modules/Intl/IntlActions';
 
 export class App extends Component {
   constructor(props) {
@@ -48,8 +47,6 @@ export class App extends Component {
             ]}
           />
           <Header
-            switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
-            intl={this.props.intl}
             toggleAddUseCase={this.toggleAddUseCaseSection}
           />
           <div className={styles.container}>
@@ -63,15 +60,7 @@ export class App extends Component {
 
 App.propTypes = {
   children: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  intl: PropTypes.object.isRequired
+  dispatch: PropTypes.func.isRequired
 };
 
-// Retrieve data from store as props
-function mapStateToProps(store) {
-  return {
-    intl: store.intl
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default connect()(App);

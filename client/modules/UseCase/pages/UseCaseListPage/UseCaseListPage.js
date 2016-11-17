@@ -18,9 +18,9 @@ class UseCaseListPage extends Component {
     this.props.dispatch(fetchUseCases());
   }
 
-  handleDeleteUseCase = post => {
-    if (confirm('Do you want to delete this post')) { // eslint-disable-line
-      this.props.dispatch(deleteUseCaseRequest(post));
+  handleDeleteUseCase = usecase => {
+    if (confirm('Do you want to delete this usecase')) { // eslint-disable-line
+      this.props.dispatch(deleteUseCaseRequest(usecase));
     }
   };
 

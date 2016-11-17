@@ -3,7 +3,6 @@ import compression from 'compression';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import path from 'path';
-import IntlWrapper from '../client/modules/Intl/IntlWrapper';
 
 // Webpack Requirements
 import webpack from 'webpack';
@@ -76,7 +75,7 @@ const renderFullPage = (html, initialState) => {
         <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png" type="image/png" />
       </head>
       <body>
-        <div id="root">${html}</div>
+        <div id="root">${process.env.NODE_ENV === 'production' ? html : `<div>${html}</div>`}</div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
           ${process.env.NODE_ENV === 'production' ?
@@ -119,9 +118,7 @@ app.use((req, res, next) => {
       .then(() => {
         const initialView = renderToString(
           <Provider store={store}>
-            <IntlWrapper>
-              <RouterContext {...renderProps} />
-            </IntlWrapper>
+            <RouterContext {...renderProps} />
           </Provider>
         );
         const finalState = store.getState();

@@ -5,11 +5,11 @@ import styles from './UseCaseListItem.css';
 
 function UseCaseListItem(props) {
   return (
-    <div className={styles['single-post']}>
-      <h3 className={styles['post-title']}>
+    <div className={styles['single-usecase']}>
+      <h3 className={styles['usecase-title']}>
         {props.usecase.title}
       </h3>
-      <p className={styles['post-desc']}>{props.usecase.body}</p>
+      <p className={styles['usecase-desc']}>{props.usecase.body}</p>
       <hr className={styles.divider} />
     </div>
   );

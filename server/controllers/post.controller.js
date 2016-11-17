@@ -1,79 +1,79 @@
-import Post from '../models/post';
+import usecase from '../models/usecase';
 import cuid from 'cuid';
 import slug from 'limax';
 import sanitizeHtml from 'sanitize-html';
 
 /**
- * Get all posts
+ * Get all usecases
  * @param req
  * @param res
  * @returns void
  */
-export function getPosts(req, res) {
-  Post.find().sort('-dateAdded').exec((err, posts) => {
+export function getusecases(req, res) {
+  usecase.find().sort('-dateAdded').exec((err, usecases) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ posts });
+    res.json({ usecases });
   });
 }
 
 /**
- * Save a post
+ * Save a usecase
  * @param req
  * @param res
  * @returns void
  */
-export function addPost(req, res) {
-  if (!req.body.post.name || !req.body.post.title || !req.body.post.content) {
+export function addusecase(req, res) {
+  if (!req.body.usecase.name || !req.body.usecase.title || !req.body.usecase.content) {
     res.status(403).end();
   }
 
-  const newPost = new Post(req.body.post);
+  const newusecase = new usecase(req.body.usecase);
 
   // Let's sanitize inputs
-  newPost.title = sanitizeHtml(newPost.title);
-  newPost.name = sanitizeHtml(newPost.name);
-  newPost.content = sanitizeHtml(newPost.content);
+  newusecase.title = sanitizeHtml(newusecase.title);
+  newusecase.name = sanitizeHtml(newusecase.name);
+  newusecase.content = sanitizeHtml(newusecase.content);
 
-  newPost.slug = slug(newPost.title.toLowerCase(), { lowercase: true });
-  newPost.cuid = cuid();
-  newPost.save((err, saved) => {
+  newusecase.slug = slug(newusecase.title.toLowerCase(), { lowercase: true });
+  newusecase.cuid = cuid();
+  newusecase.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ post: saved });
+    res.json({ usecase: saved });
   });
 }
 
 /**
- * Get a single post
+ * Get a single usecase
  * @param req
  * @param res
  * @returns void
  */
-export function getPost(req, res) {
-  Post.findOne({ cuid: req.params.cuid }).exec((err, post) => {
+export function getusecase(req, res) {
+  usecase.findOne({ cuid: req.params.cuid }).exec((err, usecase) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ post });
+    res.json({ usecase });
   });
 }
 
 /**
- * Delete a post
+ * Delete a usecase
  * @param req
  * @param res
  * @returns void
  */
-export function deletePost(req, res) {
-  Post.findOne({ cuid: req.params.cuid }).exec((err, post) => {
+export function deleteusecase(req, res) {
+  usecase.findOne({ cuid: req.params.cuid }).exec((err, usecase) => {
     if (err) {
       res.status(500).send(err);
     }
 
-    post.remove(() => {
+    usecase.remove(() => {
       res.status(200).end();
     });
   });
