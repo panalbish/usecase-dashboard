@@ -19,3 +19,8 @@ More on:
 5. `npm run cover` - generates test coverage report
 
 6. `npm run lint` - runs linter to check for lint errors
+
+## Endpoints
+
+1. `http://localhost:8000/api/usecases` - list all the usecases sorted by title
+2. `http://localhost:8000` - Application start point

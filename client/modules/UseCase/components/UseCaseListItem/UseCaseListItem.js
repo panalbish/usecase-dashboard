@@ -1,16 +1,22 @@
 import React, { PropTypes } from 'react';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 
-// Import Style
-import styles from './UseCaseListItem.css';
+function renderHTMLBody(body) {
+  return { __html: body };
+}
 
 function UseCaseListItem(props) {
   return (
-    <div className={styles['single-usecase']}>
-      <h3 className={styles['usecase-title']}>
-        {props.usecase.title}
-      </h3>
-      <p className={styles['usecase-desc']}>{props.usecase.body}</p>
-      <hr className={styles.divider} />
+    <div>
+      <Card>
+        <CardTitle title={props.usecase.title} />
+        <CardText>
+          <p
+            dangerouslySetInnerHTML={renderHTMLBody(props.usecase.body)}
+          />
+        </CardText>
+      </Card>
+      <br />
     </div>
   );
 }

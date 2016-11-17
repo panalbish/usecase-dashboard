@@ -5,12 +5,11 @@ import styles from './UseCaseCreateWidget.css';
 
 export class UseCaseCreateWidget extends Component {
   addUseCase = () => {
-    const nameRef = this.refs.name;
     const titleRef = this.refs.title;
-    const contentRef = this.refs.content;
-    if (nameRef.value && titleRef.value && contentRef.value) {
-      this.props.addUseCase(nameRef.value, titleRef.value, contentRef.value);
-      nameRef.value = titleRef.value = contentRef.value = '';
+    const bodyRef = this.refs.body;
+    if (bodyRef.value && titleRef.value) {
+      this.props.addUseCase(titleRef.value, bodyRef.value);
+      bodyRef.value = titleRef.value = '';
     }
   };
 
@@ -21,7 +20,7 @@ export class UseCaseCreateWidget extends Component {
         <div className={styles['form-content']}>
           <h2 className={styles['form-title']}>Create New UseCase</h2>
           <input placeholder="Title" className={styles['form-field']} ref="title" />
-          <textarea placeholder="Body" className={styles['form-field']} ref="content" />
+          <textarea placeholder="Body" className={styles['form-field']} ref="body" />
           <a className={styles['usecase-submit-button']} href="#" onClick={this.addUseCase}>Add</a>
         </div>
       </div>

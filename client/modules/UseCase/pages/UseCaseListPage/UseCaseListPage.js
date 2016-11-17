@@ -6,7 +6,7 @@ import UseCaseList from '../../components/UseCaseList';
 import UseCaseCreateWidget from '../../components/UseCaseCreateWidget/UseCaseCreateWidget';
 
 // Import Actions
-import { addUseCaseRequest, fetchUseCases, deleteUseCaseRequest } from '../../UseCaseActions';
+import { addUseCaseRequest, fetchUseCases } from '../../UseCaseActions';
 import { toggleAddUseCase } from '../../../App/AppActions';
 
 // Import Selectors
@@ -18,15 +18,9 @@ class UseCaseListPage extends Component {
     this.props.dispatch(fetchUseCases());
   }
 
-  handleDeleteUseCase = usecase => {
-    if (confirm('Do you want to delete this usecase')) { // eslint-disable-line
-      this.props.dispatch(deleteUseCaseRequest(usecase));
-    }
-  };
-
-  handleAddUseCase = (name, title, content) => {
+  handleAddUseCase = (title, body, milestones = []) => {
     this.props.dispatch(toggleAddUseCase());
-    this.props.dispatch(addUseCaseRequest({ name, title, content }));
+    this.props.dispatch(addUseCaseRequest({ title, body, milestones }));
   };
 
   render() {

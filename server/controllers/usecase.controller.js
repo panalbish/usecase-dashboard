@@ -8,7 +8,7 @@ import sanitizeHtml from 'sanitize-html';
  * @returns void
  */
 export function getUseCases(req, res) {
-  UseCase.find().exec((err, usecases) => {
+  UseCase.find().sort({ title: 1 }).exec((err, usecases) => {
     if (err) {
       res.status(500).send(err);
     }
