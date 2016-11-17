@@ -1,7 +1,8 @@
 
 # UseCase-Dashboard Project
+Isomorphic(Universal) React based application to display the usecase data in MD-Card format. User can also create the new usecase.
 
-Based on [MERN](http://mern.io), which is is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimises the setup time and gets you up to speed using proven technologies.
+Based on [MERN](http://mern.io), which is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimises the setup time and gets you up to speed using proven technologies.
 More on:
 - [Website](http://mern.io)
 - [Documentation](http://mern.io/documentation.html)
