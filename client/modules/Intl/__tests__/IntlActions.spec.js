@@ -3,7 +3,7 @@ import { actionTest } from 'redux-ava';
 
 import {
   SWITCH_LANGUAGE,
-  switchLanguage,
+  switchLanguage
 } from '../IntlActions';
 import { localizationData } from '../../../../Intl/setup';
 

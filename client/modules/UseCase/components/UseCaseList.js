@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react';
 
 // Import Components
-import PostListItem from './PostListItem/PostListItem';
+import UseCaseListItem from './UseCaseListItem/UseCaseListItem';
 
-function PostList(props) {
+function UseCaseList(props) {
   return (
     <div className="listView">
       {
         props.usecases.map(usecase => (
-          <PostListItem
+          <UseCaseListItem
             usecase={usecase}
             key={usecase._id}
           />
@@ -18,7 +18,7 @@ function PostList(props) {
   );
 }
 
-PostList.propTypes = {
+UseCaseList.propTypes = {
   usecases: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
@@ -26,4 +26,4 @@ PostList.propTypes = {
   })).isRequired
 };
 
-export default PostList;
+export default UseCaseList;

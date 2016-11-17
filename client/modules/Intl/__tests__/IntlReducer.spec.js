@@ -8,5 +8,5 @@ test('action for SWITCH_LANGUAGE is working', reducerTest(
   intlReducer,
   { locale: 'en', enabledLanguages, ...localizationData.en },
   switchLanguage('fr'),
-  { locale: 'fr', enabledLanguages, ...localizationData.fr },
+  { locale: 'fr', enabledLanguages, ...localizationData.fr }
 ));

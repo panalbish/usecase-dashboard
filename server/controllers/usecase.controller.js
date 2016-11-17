@@ -79,7 +79,7 @@ export function addUseCase1(req, res) {
     }
     res.json({
       message: 'Success',
-      data: useCaseModel,
+      data: useCaseModel
     });
   });
 }

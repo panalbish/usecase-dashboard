@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 // Import Style
@@ -19,12 +18,9 @@ export function Header(props, context) {
         </ul>
       </div>
       <div className={styles.content}>
-        <h1 className={styles['site-title']}>
-          <Link to="/" ><FormattedMessage id="siteTitle" /></Link>
-        </h1>
         {
           context.router.isActive('/', true)
-            ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddPost}><FormattedMessage id="addPost" /></a>
+            ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddUseCase}><FormattedMessage id="addUseCase" /></a>
             : null
         }
       </div>
@@ -33,13 +29,13 @@ export function Header(props, context) {
 }
 
 Header.contextTypes = {
-  router: React.PropTypes.object,
+  router: React.PropTypes.object
 };
 
 Header.propTypes = {
-  toggleAddPost: PropTypes.func.isRequired,
+  toggleAddUseCase: PropTypes.func.isRequired,
   switchLanguage: PropTypes.func.isRequired,
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 export default Header;

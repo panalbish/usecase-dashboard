@@ -11,8 +11,8 @@ const UseCaseSchema = new Schema({
     name_en: String,
     start_date: String,
     end_date: String,
-    usecase: Number,
-  }],
+    usecase: Number
+  }]
 }, { collection: 'usecase' });
 
 export default mongoose.model('UseCase', UseCaseSchema);
